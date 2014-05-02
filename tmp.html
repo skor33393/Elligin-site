@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="jquery.fullPage.css" />
+
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/foundation.css">
+
+<script src="js/vendor/modernizr.js"></script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<!-- This following line is needed in case of using the default easing option or when using another
+ one rather than "linear" or "swing". You can also add the full jQuery UI instead of this file if you prefer -->
+<script src="vendors/jquery.easings.min.js"></script>   
+
+<script type="text/javascript" src="jquery.fullPage.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+    $('#fullpage').fullpage({
+        	slidesColor : ['green', 'blue', 'white', 'gray'],
+        	autoScrolling: true ,
+        	anchors: ['firstPage', 'secondPage', '3rdPage', '4Page'],
+        	navigation: true,
+			navigationPosition: 'right',
+			menu : '#menu',
+			
+			'afterLoad' : function(anchorLink, index) {
+				if(index == '3') {
+					//alert('3');
+					$("div.img_cont").addClass('active1');
+				}
+			}
+		});
+	});	
+</script>
+
+<style>
+div.img_cont {
+	-webkit-transition: all 3s ease-out;
+	-moz-transition: all 0.7s ease-out;
+	-o-transition: all 0.7s ease-out;
+	transition: all 0.7s ease-out;
+}
+	
+	.active1 {
+		-webkit-transform: translate3d(40%, 0px, 0px);
+	}
+
+	
+</style>
+
+</head>
+
+<body>
+
+<div class="top-bar fixed" data-topbar> <ul class="title-area"> <li class="name"> <h1><a href="#">My Site</a></h1> </li> <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone --> <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li> </ul> <section class="top-bar-section"> <!-- Right Nav Section --> <ul class="right"> <li class="active"><a href="#">Right Button Active</a></li> <li class="has-dropdown"> <a href="#">Right Button Dropdown</a> <ul class="dropdown"> <li><a href="#">First link in dropdown</a></li> </ul> </li> </ul> <!-- Left Nav Section --> <ul class="left"> <li><a href="#">Left Nav Button</a></li> </ul> </section> </div>
+
+<div id="fullpage">
+    <div class="section" id="section1">Some section</div>
+    <div class="section" id="section2">
+    	<div class="slide"> Slide 1 </div>
+    	<div class="slide"> Slide 2 </div>
+    	<div class="slide"> Slide 3 </div>
+    	<div class="slide"> Slide 4 </div>
+    </div>
+    <div class="section" id="section3">
+		<div class="img_cont">
+    		<img id="our_img" src="examples/imgs/iphone-green.png" width="" height="" align="center">
+		</div>
+    </div>
+    <div class="section" id="section4">Some section</div>
+</div>
+
+<script src="js/foundation.min.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
+
+</body>
+</html>
